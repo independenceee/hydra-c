@@ -1,30 +1,23 @@
 graph TD
-    subgraph "Cardano Main Chain (Layer-1)"
-        Main[Block hiện tại\nChỉ ghi kết quả cuối]
-        style Main fill:#ff6666,color:#fff
+    subgraph L1Block ["LAYER-1 (Cardano Main Chain)"]
+        Main[LAYER-1<br/>Chỉ ghi kết quả cuối]
+        style Main fill:#e91e63,color:white,font-size:16px
     end
 
-    subgraph "Hydra – Hàng nghìn đường cao tốc riêng tư song song"
-        H1[Hydra Head #1\n~10 000 TPS]
-        H2[Hydra Head #2\n~10 000 TPS]
-        H3[Hydra Head #3\n~10 000 TPS]
-        H4[...]
-
+    subgraph Hydra ["HYDRA — Hàng nghìn làn riêng"]
+        H1[Head #1<br/>10k+ TPS]
+        H2[Head #2<br/>10k+ TPS]
+        H3[Head #3<br/>10k+ TPS]
+        Hn[Head #n<br/>...]
+        style H1,H2,H3,Hn fill:#00c853,color:black
     end
 
-    User[Người dùng / DeFi / Game / NFT] -->|99,9% giao dịch| H1
-    User -->|99,9% giao dịch| H2
-    User -->|99,9% giao dịch| H3
-    User -->|99,9% giao dịch| H1000
+    User[Người dùng<br/>DeFi • Game • Payment] --> H1
+    User --> H2
+    User --> H3
+    User --> Hn
 
-    H1 -->|Chỉ snapshot cuối| Main
-    H2 -->|Chỉ snapshot cuối| Main
-    H3 -->|Chỉ snapshot cuối| Main
-    H1000 -->|Chỉ snapshot cuối| Main
-
-    style H1 fill:#66ff66
-    style H2 fill:#66ff66
-    style H3 fill:#66ff66
-    style H1000 fill:#66ff66
-    note3[Tốc độ Layer-2\nBảo mật & finality Layer-1\nKhông bridge – Không chờ 7 ngày]
-    style note3 fill:#222,color:#0f0,font-weight:bold
+    H1 -->|snapshot cuối| Main
+    H2 -->|snapshot cuối| Main
+    H3 -->|snapshot cuối| Main
+    Hn -->|snapshot cuối| Main
